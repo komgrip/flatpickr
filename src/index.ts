@@ -372,7 +372,7 @@ function FlatpickrInstance(
       year / 1000 > 1 ||
       (event.key === "Enter" && !/[^\d]/.test(year.toString()))
     ) {
-      if (self.config.useLocaleYear) {
+      if (self.config.useBuddhistYear) {
         const adj = self.l10n.localeYearAdjustment || 0;
         year = year - adj;
       }
@@ -2799,7 +2799,7 @@ function FlatpickrInstance(
         self.monthsDropdownContainer.value = d.getMonth().toString();
       }
 
-      if (self.config.useLocaleYear) {
+      if (self.config.useBuddhistYear) {
         const adj = self.l10n.localeYearAdjustment || 0;
         yearElement.value = (d.getFullYear() + adj).toString();
       } else {

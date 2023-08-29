@@ -86,7 +86,7 @@ export const revFormat: RevFormat = {
     return date;
   },
   Y: (dateObj: Date, year: string, locale: Locale, options: ParsedOptions) => {
-    if (options.useLocaleYear) {
+    if (options.useBuddhistYear) {
       const adj = locale.localeYearAdjustment || 0;
       dateObj.setFullYear(parseFloat(year) - adj);
     } else {
@@ -121,7 +121,7 @@ export const revFormat: RevFormat = {
     new Date(parseFloat(unixMillSeconds)),
   w: doNothing,
   y: (dateObj: Date, year: string, locale: Locale, options: ParsedOptions) => {
-    if (options.useLocaleYear) {
+    if (options.useBuddhistYear) {
       const adj = locale.localeYearAdjustment || 0;
       const centuryYear =
         Math.floor((new Date().getFullYear() + adj) / 100) * 100;
@@ -219,7 +219,7 @@ export const formats: Formats = {
 
   // full year e.g. 2016, padded (0001-9999)
   Y: function (date: Date, locale: Locale, options: ParsedOptions) {
-    if (options.useLocaleYear) {
+    if (options.useBuddhistYear) {
       return pad(date.getFullYear() + (locale.localeYearAdjustment || 0), 4);
     } else {
       return pad(date.getFullYear(), 4);
@@ -260,7 +260,7 @@ export const formats: Formats = {
 
   // last two digits of year e.g. 16 for 2016
   y: function (date: Date, locale: Locale, options: ParsedOptions) {
-    if (options.useLocaleYear) {
+    if (options.useBuddhistYear) {
       return String(
         date.getFullYear() + (locale.localeYearAdjustment || 0)
       ).substring(2);
